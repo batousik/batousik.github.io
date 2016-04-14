@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://standrews.ac.uk/cs/cs3301/ctms/serviceslayersystem/object/objects"
+           targetNamespace="http://standrews.ac.uk/cs/cs3301/ctms/serviceslayersystem/object/objects"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="messageHeaderType">
+        <xs:sequence>
+            <xs:element name="uuid" type="xs:string"/>
+            <xs:element name="timestamp" type="xs:string"/>
+            <xs:element name="clientUuid" type="xs:string"/>
+            <xs:element name="counter" type="xs:integer"/>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="error" type="tns:errorType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="errorType">
+        <xs:sequence>
+            <xs:element name="errorMsg" type="xs:string"/>
+            <xs:element name="errorCode" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="orderType">
+        <xs:sequence>
+            <xs:element name="idOrder" type="xs:integer"/>
+            <xs:element name="idCustomer" type="xs:string"/>
+            <xs:element name="idDriver" type="xs:string"/>
+            <xs:element name="pickup" type="xs:string"/>
+            <xs:element name="requestedTime" type="xs:string"/>
+            <xs:element name="destination" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="driverType">
+        <xs:sequence>
+            <xs:element name="idDriverAccount" type="xs:integer"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="dob" type="xs:string"/>
+            <xs:element name="nationality" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="location" type="tns:locationType"/>
+            <xs:element name="username" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+            <xs:element name="available" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userType">
+        <xs:sequence>
+            <xs:element name="idUserAccount" type="xs:integer"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="dob" type="xs:string"/>
+            <xs:element name="nationality" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="location" type="tns:locationType"/>
+            <xs:element name="username" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="locationType">
+        <xs:sequence>
+            <xs:element name="x" type="xs:string"/>
+            <xs:element name="y" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
